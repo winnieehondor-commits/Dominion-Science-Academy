@@ -55,53 +55,56 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
 
-    <header class="sticky top-0 z-50 bg-white shadow-xl transition-all-200">
+    <header class="sticky top-0 z-50 bg-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            
-            <a href="index.html" class="flex items-center space-x-3 transition-all-200 hover:opacity-90 animate-fade-in-up">
-                <div class="flex items-center space-x-2">
-                    <div class="text-3xl font-bold text-white bg-primary p-2 w-12 h-12 flex items-center justify-center rounded-xl shadow-lg-primary transition-all-200 hover:scale-110">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <span class="hidden md:inline text-2xl font-extrabold text-gray-800 tracking-tight">Dominion <span class="text-primary">Science</span> Academy</span>
-                    <span class="md:hidden text-2xl font-extrabold text-gray-800 tracking-tight">DSA</span>
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Dominion Science Academy Home">
+                <div class="text-3xl font-bold text-primary w-10 h-10 flex items-center justify-center bg-primary rounded-full p-2">
+               
+                    <img src="images/IMG-20251031-WA0041.jpg">
                 </div>
+               
+                <span class="hidden md:inline text-xl font-extrabold text-gray-800 tracking-tight">Dominion Science Academy</span>
+            
             </a>
             
-            <nav class="hidden md:flex items-center space-x-8 font-semibold animate-fade-in-up animate-delay-200">
-                <a href="index.html" class="text-gray-700 hover:text-primary transition-all-200 relative group">Home</a>
-                <a href="about.html" class="text-primary font-bold relative group transition-all-200">About Us
-                    <span class="absolute bottom-[-4px] left-0 w-full h-0.5 bg-primary rounded-full animate-pulse-border-primary"></span>
-                </a>
-                <a href="reviews.html" class="text-gray-700 hover:text-primary transition-all-200 relative group">Success Stories</a>
-                <a href="faq.html" class="text-gray-700 hover:text-primary transition-all-200 relative group">FAQ</a>
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="index.html" class="text-gray-700 hover:text-primary transition duration-300 relative group">Home</a>
+                <a href="index2.html" class="text-primary border-b-2 border-primary pb-1 transition duration-300">About Us</a>
+                   <a href="index3.html" class="text-gray-700 hover:text-primary transition duration-300 relative group">Academics</a>
+                <a href="index.html#testimonials-heading" class="text-gray-700 hover:text-primary transition duration-300 relative group">Reviews</a>
+                <a href="index.html#faq-heading" class="text-gray-700 hover:text-primary transition duration-300 relative group">FAQ</a>
+               
                 
-                <a href="contact.html" class="bg-primary hover-bg-primary text-white font-bold py-3 px-7 rounded-full transition-all-200 shadow-primary hover:shadow-lg transform hover:scale-105">
-                    Apply Now <i class="fas fa-arrow-right ml-1"></i>
+                <a href="#contact" class="bg-primary hover-bg-primary text-white font-bold py-2.5 px-6 rounded-full transition duration-300 shadow-green transform hover:scale-105">
+                    Apply Now <i class="fas fa-arrow-right ml-1 text-sm"></i>
                 </a>
-                <a href="https://wa.me/[Insert WhatsApp Number]" target="_blank" class="text-primary hover:text-primary transition-all-200 text-3xl md:block transform hover:scale-110" title="WhatsApp Us">
+                
+                <a href="https://wa.me/+2347069438378" target="_blank" class="text-2xl w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:opacity-90 transition duration-300 shadow-md" title="WhatsApp Us" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-            </nav>
+            </div>
             
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-primary transition-all-200">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-primary focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Toggle Mobile Menu">
+                <i class="fas fa-bars w-6 h-6"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-4 transition-all-200">
-            <a href="index.html" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition-all-200"><i class="fas fa-home mr-2"></i> Home</a>
-            <a href="about.html" class="block px-6 py-3 text-primary font-bold bg-gray-100"><i class="fas fa-info-circle mr-2"></i> About Us</a>
-            <a href="reviews.html" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition-all-200"><i class="fas fa-star mr-2"></i> Success Stories</a>
-            <a href="faq.html" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition-all-200"><i class="fas fa-question-circle mr-2"></i> FAQ</a>
-            <a href="contact.html" class="block mx-4 mt-4 text-center bg-primary hover-bg-primary text-white font-bold py-3 rounded-full shadow-md transition-all-200">
-                <i class="fas fa-pencil-alt mr-2"></i> Apply Now
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-4">
+            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="index2.html" class="block px-4 py-2 text-primary font-bold bg-gray-100 border-l-4 border-primary">About Us</a>
+                <a href="index3.html" class="text-gray-700 hover:text-primary transition duration-300 relative group">Discover</a>
+            <a href="index.html#testimonials-heading" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Reviews</a>
+            <a href="index.html#faq-heading" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">FAQ</a>
+          
+            <a href="#contact" class="block mx-4 mt-2 text-center bg-primary hover-bg-primary text-white font-bold py-2 rounded-full">
+                Apply Now
             </a>
-            <a href="https://wa.me/[Insert WhatsApp Number]" target="_blank" class="block mx-4 mt-2 text-center text-primary font-bold py-3 rounded-full border-2 border-primary hover:bg-gray-100 transition-all-200">
-                <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
+            <a href="https://wa.me+2347069438378/" target="_blank" class="block mx-4 mt-2 text-center text-primary font-bold py-2 rounded-full border border-primary hover:bg-gray-50">
+                WhatsApp Us
             </a>
         </div>
     </header>
+
 
     <main>
         <section class="bg-primary text-white py-24 sm:py-32 text-center shadow-lg-primary">
@@ -120,10 +123,10 @@
                     <h2 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-4 border-primary pb-3 inline-block">Our Story <i class="fas fa-book-open text-primary ml-2"></i></h2>
                     
                     <p class="text-lg text-gray-700 leading-relaxed animate-fade-in-up animate-delay-200">
-                        Dominion Science Academy was **established in 2004 by Mr. Hassan Shaka** with the vision of creating an institution where academic rigour meets Christ-centered moral training. Starting small, we have steadily grown to include vibrant primary and secondary sections in Owo, Ondo State.
+                        Dominion Science Academy was established in 2004 by Mr. Hassan Shaka with the vision of creating an institution where academic rigour meets Christ-centered moral training. Starting small, we have steadily grown to include vibrant primary and secondary sections in Owo, Ondo State.
                     </p>
                     <p class="text-lg text-gray-700 leading-relaxed animate-fade-in-up animate-delay-400">
-                        We are fundamentally committed to **holistic development**, ensuring every student is well-equipped spiritually, intellectually, and morally to face future challenges. Our focus remains sharp: producing disciplined, top-tier scholars.
+                        We are fundamentally committed to holistic development, ensuring every student is well-equipped spiritually, intellectually, and morally to face future challenges. Our focus remains sharp: producing disciplined, top-tier scholars.
                     </p>
                     
                     <div class="my-10 p-6 bg-gray-100 rounded-2xl shadow-inner border border-gray-200 transition-all-200 hover:shadow-lg hover:border-primary/50">
@@ -131,8 +134,7 @@
                             <i class="fas fa-school mr-3 animate-pulse"></i> Dominion Science Academy Campus
                         </p>
                         <div class="w-full h-80 bg-gray-200 rounded-xl overflow-hidden shadow-xl flex items-center justify-center border border-dashed border-gray-400">
-                            <p class="text-gray-400 text-center p-4 italic text-9xl">
-                                <i class="fas fa-university"></i>
+                          <img src="images/IMG-20251031-WA0036.jpg">
                             </p>
                         </div>
                     </div>
@@ -141,7 +143,7 @@
                         <i class="fas fa-hands-helping text-primary mr-3"></i> Our Nurturing Environment
                     </h3>
                     <p class="text-lg text-gray-700 leading-relaxed">
-                        Our state-of-the-art facilities, including a dedicated **boarding house**, are designed to foster learning, creativity, and spiritual growth. We believe in providing a safe, inclusive, and warm environment where every one of our **over 300 students** can thrive.
+                        Our state-of-the-art facilities, including a dedicated boarding house, are designed to foster learning, creativity, and spiritual growth. We believe in providing a safe, inclusive, and warm environment where every one of our over 300 students can thrive.
                     </p>
                 </div>
 
@@ -181,8 +183,8 @@
                             <i class="fas fa-flask mr-3 animate-bounce"></i> Practical Science in Action
                         </p>
                         <div class="w-full h-64 bg-gray-200 rounded-xl overflow-hidden shadow-xl flex items-center justify-center border border-dashed border-gray-400">
-                            <p class="text-gray-400 text-center p-4 italic text-8xl">
-                                <i class="fas fa-vial"></i>
+                          <img src="images/IMG-20251031-WA0051.jpg">
+                               
                             </p>
                         </div>
                     </div>
@@ -203,13 +205,13 @@
                             <span class="mr-3 text-4xl"><i class="fas fa-trophy"></i></span> Academic Excellence
                         </h3>
                         <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                            We pride ourselves on our consistent **high performance in WAEC and JAMB**. Our curriculum is intentionally designed to place strong emphasis on **mathematics and core sciences**, preparing our students not just to pass exams, but to excel and succeed in tertiary education and beyond.
+                            We pride ourselves on our consistent high performance in WAEC and JAMB. Our curriculum is intentionally designed to place strong emphasis on mathematics and core sciences, preparing our students not just to pass exams, but to excel and succeed in tertiary education and beyond.
                         </p>
                         
                         <div class="mt-8">
                             <p class="font-bold text-lg text-gray-800 mb-3 flex items-center"><i class="fas fa-chart-line mr-2 text-primary"></i> Focused Learning</p>
                             <div class="w-full h-56 bg-gray-200 rounded-lg overflow-hidden shadow-inner flex items-center justify-center border border-dashed border-gray-400">
-                                <p class="text-gray-500 italic p-4 text-6xl text-primary/50"><i class="fas fa-chart-bar"></i></p>
+                                <img src="images/IMG-20251031-WA0036.jpg">
                             </div>
                         </div>
                     </div>
@@ -219,13 +221,13 @@
                             <span class="mr-3 text-4xl"><i class="fas fa-shield-alt"></i></span> Discipline and Moral Development
                         </h3>
                         <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                            Our core value of **Discipline** is why we have been specially recognized by the **Ondo State Ministry of Education**. Coupled with our **Christ-centered education**, we ensure students leave Dominion Science Academy as responsible, ethical, and morally sound individuals.
+                            Our core value of Discipline is why we have been specially recognized by the Ondo State Ministry of Education. Coupled with our Christ-centered education, we ensure students leave Dominion Science Academy as responsible, ethical, and morally sound individuals.
                         </p>
                         
                         <div class="mt-8">
                             <p class="font-bold text-lg text-gray-800 mb-3 flex items-center"><i class="fas fa-gavel mr-2 text-primary"></i> Commitment to Conduct</p>
                             <div class="w-full h-56 bg-gray-200 rounded-lg overflow-hidden shadow-inner flex items-center justify-center border border-dashed border-gray-400">
-                                <p class="text-gray-500 italic p-4 text-6xl text-primary/50"><i class="fas fa-scroll"></i></p>
+                               <img src="images/IMG-20251031-WA0040.jpg">
                             </div>
                         </div>
                     </div>
@@ -236,62 +238,64 @@
                         <i class="fas fa-certificate text-primary mr-3"></i> Accreditation and Recognition
                     </h4>
                     <p class="text-xl text-gray-700 max-w-4xl mx-auto">
-                        Officially **approved by the Ondo State Ministry of Education** and highly respected within the Owo community for our quality of education and student conduct.
+                        Officially approved by the Ondo State Ministry of Education and highly respected within the Owo community for our quality of education and student conduct.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-24 px-4 bg-primary text-white">
+       <section id="contact" class="py-24 px-4 bg-primary text-white" aria-labelledby="cta-heading">
             <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 animate-fade-in-up">
-                    Ready to Join the Dominion Family? <i class="fas fa-heart text-white ml-2"></i>
+                <h2 id="cta-heading" class="text-4xl sm:text-5xl font-extrabold mb-4">
+                    Ready to Join the Dominion Family?
                 </h2>
-                <p class="text-xl opacity-90 mb-16 max-w-4xl mx-auto font-light animate-fade-in-up animate-delay-200">
+                <p class="text-xl opacity-90 mb-16 max-w-4xl mx-auto font-light">
                     Find out more about our admission process or get in touch with our administrative team.
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     
-                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary animate-fade-in-up animate-delay-200">
-                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-phone-alt animate-shake-hover"></i></p>
+                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary" role="complementary" aria-label="Contact by Phone">
+                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-phone-alt" aria-hidden="true"></i></p>
                         <h3 class="text-2xl font-bold mb-2">Call Us</h3>
-                        <p class="text-xl text-gray-700 font-mono">[Insert School Number]</p>
+                    
+                                    <a href="https://wa.me/+2347033742117" target="_blank" class="btn btn-contact-icon">+2347033742117</a>
                         <p class="text-sm text-gray-500 mt-2">Mon-Fri, 8am-4pm WAT</p>
                     </div>
                     
-                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary animate-fade-in-up animate-delay-400">
-                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-envelope animate-tada-hover"></i></p>
+                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary" role="complementary" aria-label="Contact by Email">
+                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-envelope" aria-hidden="true"></i></p>
                         <h3 class="text-2xl font-bold mb-2">Email Us</h3>
-                        <p class="text-xl text-gray-700 font-mono">[Insert School Email]</p>
+                          <a href="mailto:dominionscademy202@gmail.com" class="btn btn-contact-icon">dominionscademy202@gmail.com</a>
+                     
                         <p class="text-sm text-gray-500 mt-2">We respond within 24 hours.</p>
                     </div>
                     
-                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary animate-fade-in-up animate-delay-600">
-                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-map-marker-alt animate-wiggle-hover"></i></p>
+                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary" role="complementary" aria-label="Visit our Campus">
+                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></p>
                         <h3 class="text-2xl font-bold mb-2">Visit Our Campus</h3>
                         <p class="text-xl text-gray-700">Akure, Ondo State, Owo</p>
-                        <a href="contact.html" class="text-primary hover:underline font-semibold mt-2 inline-block transition-all-200">Get Directions <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                      
                     </div>
                 </div>
 
                 <div class="mt-16">
-                    <a href="contact.html" class="inline-flex items-center justify-center bg-white text-primary hover:bg-gray-100 font-extrabold text-xl py-4 px-12 rounded-full transition-all-200 shadow-2xl shadow-primary transform hover:translate-y-[-2px] tracking-wide animate-pulse">
-                        <i class="fas fa-graduation-cap w-6 h-6 mr-3"></i>
+
+                        <i class="fas fa-graduation-cap w-6 h-6 mr-3" aria-hidden="true"></i>
                         Begin Your Application Today
                     </a>
                 </div>
             </div>
         </section>
-        </main>
+    </main>
 
-    <footer class="bg-gray-900 text-white py-20 px-4">
+    <footer class="bg-gray-900 text-white py-20 px-4" role="contentinfo">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left">
             
             <div class="lg:col-span-2 space-y-4">
                 <div class="flex items-center justify-center md:justify-start space-x-3">
-                    <span class="text-5xl font-extrabold text-primary"><i class="fas fa-atom"></i></span>
-                    <span class="text-3xl font-extrabold text-white">DSA</span>
+                    <span class="text-5xl font-extrabold text-primary"><span>
+                 <img src="images/IMG-20251031-WA0041.jpg" style="width: 50px; height: 50px; border-radius: 25px;">
                 </div>
                 <p class="text-2xl font-bold text-white mt-1 mb-2">Dominion Science Academy</p>
                 <p class="text-base text-gray-400 italic">"On Christ We Build" - Excellence in Faith and Science.</p>
@@ -301,34 +305,37 @@
             </div>
 
             <div class="space-y-4">
-                <h4 class="text-xl font-bold text-primary mb-4 border-b border-primary/50 pb-2">Quick Links</h4>
+                <h4 class="text-xl font-bold text-primary mb-4 border-b border-primary pb-2">Quick Links</h4>
                 <ul class="space-y-3 text-lg text-gray-400">
-                    <li><a href="index.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs"></i>Home</a></li>
-                    <li><a href="about.html" class="hover:text-white transition-all-200 hover:ml-1 font-bold text-white"><i class="fas fa-chevron-right mr-2 text-xs"></i>About Us</a></li>
-                    <li><a href="contact.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs"></i>Admissions & Contact</a></li>
-                    <li><a href="reviews.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs"></i>Reviews & Results</a></li>
-                    <li><a href="faq.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs"></i>FAQs</a></li>
+                    <li><a href="index.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>Home</a></li>
+                    <li><a href="index2.html" class="hover:text-white transition-all-200 hover:ml-1 font-bold"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>About Us</a></li>
+                    <li><a href="index3.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>Academics</a></li>
+                    <li><a href="#testimonials-heading" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>Reviews & Results</a></li>
+                    <li><a href="#faq-heading" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>FAQs</a></li>
+                    
+                    
                 </ul>
             </div>
 
             <div class="space-y-4">
-                <h4 class="text-xl font-bold text-primary mb-4 border-b border-primary/50 pb-2">Get In Touch</h4>
+                <h4 class="text-xl font-bold text-primary mb-4 border-b border-primary pb-2">Get In Touch</h4>
                 <div class="space-y-3 text-lg text-gray-400">
-                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-map-pin mr-3 text-sm text-primary"></i> Owo, Ondo State, Nigeria</p>
-                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-phone mr-3 text-sm text-primary"></i> [Insert School Number]</p>
-                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-at mr-3 text-sm text-primary"></i> [Insert School Email]</p>
+                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-map-marker-alt mr-3 text-sm text-primary" aria-hidden="true"></i> Owo, Ondo State, Nigeria</p>
+                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-phone-alt mr-3 text-sm text-primary" aria-hidden="true"></i>  <a href="https://wa.me/+2347033742117" target="_blank" class="btn btn-contact-icon">+2347033742117</a>
+                        <p class="text-sm text-gray-500 mt-2">Mon-Fri, 8am-4pm WAT</p></p>
+                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-envelope mr-3 text-sm text-primary" aria-hidden="true"></i>  <a href="mailto:dominionscademy202@gmail.com" class="btn btn-contact-icon">dominionscademy202@gmail.com</a></p>
                     <p class="pt-2 text-gray-500 text-sm">Office Hours: Mon–Fri, 8am–4pm</p>
                 </div>
                 
                 <div class="flex justify-center md:justify-start space-x-6 mt-6">
-                    <a href="#" class="text-gray-400 hover:text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="Facebook">
-                        <i class="fab fa-facebook-square"></i>
+                    <a href="#" class="text-gray-400 hover-text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="Follow us on Facebook">
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="Instagram">
-                        <i class="fab fa-instagram-square"></i>
+                    <a href="#" class="text-gray-400 hover-text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram-square" aria-hidden="true"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp-square"></i>
+                    <a href="https://wa.me/+2347033742117" class="text-gray-400 hover-text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="Chat with us on WhatsApp">
+                        <i class="fab fa-whatsapp-square" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -337,7 +344,7 @@
 
         <div class="max-w-7xl mx-auto text-center border-t border-gray-800 mt-16 pt-8">
             <p class="text-sm text-gray-600">
-                &copy; <span id="current-year">2024</span> Dominion Science Academy. All Rights Reserved. Designed for Excellence.
+                &copy; <span id="current-year">2025</span> Dominion Science Academy. All Rights Reserved. Designed for Excellence.
             </p>
         </div>
     </footer>
