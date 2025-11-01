@@ -112,7 +112,7 @@
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
- 
+ 
 <body class="bg-white text-gray-800 antialiased">
 
     <header class="sticky top-0 z-50 bg-white shadow-xl">
@@ -145,7 +145,7 @@
             </div>
             
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-primary focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Toggle Mobile Menu" aria-expanded="false">
-                <i class="fas fa-bars w-6 h-6"></i>
+                <i id="menu-icon" class="fas fa-bars w-6 h-6"></i>
             </button>
         </div>
 
@@ -175,24 +175,36 @@
                 currentYearElement.textContent = new Date().getFullYear();
             }
 
-            // ⭐ CORE FIX: Mobile Menu Logic ⭐
+            // ⭐ CORE FIX: Mobile Menu Logic - Updated to toggle icon ⭐
             const mobileMenuBtn = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon'); // Get the icon element
 
-            if (mobileMenuBtn && mobileMenu) {
+            if (mobileMenuBtn && mobileMenu && menuIcon) {
                 mobileMenuBtn.addEventListener('click', () => {
                     // This toggles the 'hidden' Tailwind class on the menu
                     mobileMenu.classList.toggle('hidden');
                     
-                    // Update ARIA for accessibility (optional but good practice)
+                    // Update ARIA for accessibility
                     const isMenuOpen = !mobileMenu.classList.contains('hidden');
                     mobileMenuBtn.setAttribute('aria-expanded', isMenuOpen);
+                    
+                    // TOGGLE ICON: bars <-> times
+                    if (isMenuOpen) {
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-times'); // Use fa-times (X icon) when open
+                    } else {
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars'); // Use fa-bars (Hamburger icon) when closed
+                    }
                 });
             }
             
             // --- Other scripts (Carousel, FAQ) omitted for brevity. Make sure to include them if needed. ---
         });
     </script>
+</body>
+</html>
 </body>
     <main>
         
