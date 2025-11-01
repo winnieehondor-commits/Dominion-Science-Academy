@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion Science Academy - Home | Academic Excellence & Christian Discipline</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdRDJcEaZpwaFmIqJb7u0jH6B9Pq1Gk2h6H2Nq6q+n+h0Vf+XkI3W4q1H4W5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* --- CUSTOM COLOR VARIABLES --- */
+        :root {
+            --color-primary: #1A4335;
+            --color-primary-dark: #122F26; /* Slightly darker for hover */
+            --color-light-bg: #F0FAF5; /* A very light green/gray background for contrast */
+        }
+        
+        /* Base font for all elements */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- CUSTOM UTILITY CLASSES using CSS Variables --- */
+        .bg-primary { background-color: var(--color-primary); }
+        .bg-light-bg { background-color: var(--color-light-bg); }
+        .text-primary { color: var(--color-primary); }
+        .border-primary { border-color: var(--color-primary); }
+        .hover-bg-primary:hover { background-color: var(--color-primary-dark); }
+        .hover-text-primary:hover { color: var(--color-primary-dark); }
+        
+        /* Custom Shadows for the new Primary Color */
+        .shadow-primary-glow { 
+            box-shadow: 0 5px 15px rgba(26, 67, 53, 0.4); 
+        }
+        .shadow-lg-primary { 
+            box-shadow: 0 20px 25px -5px rgba(26, 67, 53, 0.2), 0 10px 10px -5px rgba(26, 67, 53, 0.04); 
+        }
+        .border-t-primary { border-top-color: var(--color-primary); }
+        .border-b-primary { border-bottom-color: var(--color-primary); }
+
+
+        /* Custom Styles for Mobile Menu and FAQ Accordion */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* FAQ Accordion Styling */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px; 
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(45deg);
+        }
+        .faq-toggle-icon {
+            transition: transform 0.3s;
+        }
+
+        /* Carousel Item Fade Effect */
+        .carousel-item {
+            display: block; 
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; 
+            transition: opacity 1.5s ease-in-out; 
+        }
+        .carousel-item.active {
+            opacity: 1;
+        }
+        
+        /* Keyframe animation for hero text */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+ 
+    
+     <header class="sticky top-0 z-50 bg-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3" aria-label="Dominion Science Academy Home">
+                <div class="text-3xl font-bold text-primary w-10 h-10 flex items-center justify-center bg-primary rounded-full p-2">
+                    <i class="fas fa-atom text-white"></i> 
+                </div>
+                <span class="hidden md:inline text-xl font-extrabold text-gray-800 tracking-tight">**Dominion Science Academy**</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="index.html" class="text-gray-700 hover:text-primary transition duration-300 relative group">Home</a>
+                <a href="about.html" class="text-primary border-b-2 border-primary pb-1 transition duration-300">About Us</a>
+                <a href="reviews.html" class="text-gray-700 hover:text-primary transition duration-300 relative group">Success Stories</a>
+                <a href="faq.html" class="text-gray-700 hover:text-primary transition duration-300 relative group">FAQ</a>
+                
+                <a href="contact.html" class="bg-primary hover-bg-primary text-white font-bold py-2.5 px-6 rounded-full transition duration-300 shadow-green transform hover:scale-105">
+                    Apply Now <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                </a>
+                
+                <a href="https://wa.me/[Insert WhatsApp Number]" target="_blank" class="text-2xl w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:opacity-90 transition duration-300 shadow-md" title="WhatsApp Us" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-primary focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Toggle Mobile Menu">
+                <i class="fas fa-bars w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-4">
+            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="about.html" class="block px-4 py-2 text-primary font-bold bg-gray-100 border-l-4 border-primary">About Us</a>
+            <a href="reviews.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Success Stories</a>
+            <a href="faq.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">FAQ</a>
+            <a href="contact.html" class="block mx-4 mt-2 text-center bg-primary hover-bg-primary text-white font-bold py-2 rounded-full">
+                Apply Now
+            </a>
+            <a href="https://wa.me/[Insert WhatsApp Number]" target="_blank" class="block mx-4 mt-2 text-center text-primary font-bold py-2 rounded-full border border-primary hover:bg-gray-50">
+                WhatsApp Us
+            </a>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="hero-carousel" class="relative h-[550px] sm:h-[650px] overflow-hidden" role="region" aria-label="Dominion Science Academy Welcome Slideshow">
+            
+            <div class="carousel-item active absolute inset-0 bg-cover bg-center" 
+                style="background-image: url('IMG-20251031-WA0041.jpg'); background-blend-mode: multiply; background-color: rgba(0,0,0,0.5);" aria-hidden="false">
+                <span class="sr-only">Students engaged in a science activity.</span>
+            </div>
+            
+            <div class="carousel-item absolute inset-0 bg-cover bg-center" 
+                style="background-image: url('https://placehold.co/1200x650/1E40AF/BFDBFE?text=Leadership+Training'); background-blend-mode: multiply; background-color: rgba(0,0,0,0.5);" aria-hidden="true">
+                 <span class="sr-only">Students participating in leadership training activities.</span>
+            </div>
+            
+            <div class="carousel-item absolute inset-0 bg-cover bg-center" 
+                style="background-image: url('https://placehold.co/1200x650/B45309/FDE68A?text=Academic+Awards'); background-blend-mode: multiply; background-color: rgba(0,0,0,0.5);" aria-hidden="true">
+                <span class="sr-only">Students receiving academic awards and recognition.</span>
+            </div>
+            
+            <div class="carousel-item absolute inset-0 bg-cover bg-center" 
+                style="background-image: url('https://placehold.co/1200x650/881337/FBCFE8?text=Focused+Students'); background-blend-mode: multiply; background-color: rgba(0,0,0,0.5);" aria-hidden="true">
+                <span class="sr-only">Students focusing during an examination.</span>
+            </div>
+
+            <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-center z-30">
+                <div class="max-w-4xl mx-auto px-6 text-white">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 animate-fadeInUp">
+                        Welcome to <span class="text-primary block sm:inline">Dominion Science Academy</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+                        “Building disciplined, **Christ-centered**, and **academically excellent** leaders in Owo, Ondo State.”
+                    </p>
+                    <a href="about.html" class="bg-primary hover-bg-primary text-white font-semibold py-4 px-10 rounded-full text-lg transition duration-500 transform hover:scale-105 shadow-primary-glow border-2 border-white">
+                        Learn More About Us
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-28 px-4 bg-white" aria-labelledby="legacy-heading">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 id="legacy-heading" class="text-3xl sm:text-5xl font-extrabold text-gray-900 mb-6">A Legacy of Excellence in Ondo State</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+                    Established in **2004** in Owo, Dominion Science Academy has grown into a reputable institution for both primary and secondary education. We are dedicated to the **holistic development** of every child, blending rigorous science education with strong moral foundations.
+                </p>
+                <a href="about.html" class="inline-flex items-center text-primary font-bold text-lg hover-text-primary transition duration-300 border-b-4 border-primary hover-text-primary p-1">
+                    Read More about Our Story & Values 
+                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="bg-primary py-28 px-4" aria-labelledby="pillars-heading">
+            <div class="max-w-7xl mx-auto">
+                <h2 id="pillars-heading" class="text-3xl sm:text-5xl font-extrabold text-center text-white mb-16">Our Pillars of Success</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                    
+                    <div class="bg-white p-10 rounded-2xl shadow-2xl text-center transform hover:scale-[1.05] transition duration-500 hover:shadow-primary-glow border-b-8 border-primary" role="article">
+                        <i class="fas fa-graduation-cap text-6xl text-primary mb-6 block" aria-hidden="true"></i>
+                        <h3 class="text-2xl font-extrabold mb-3 text-gray-900">Academic Excellence</h3>
+                        <p class="text-gray-600 leading-relaxed">Driven by a curriculum that emphasizes mathematics, science, and rigorous preparation for top university entrance exams like WAEC and JAMB.</p>
+                    </div>
+
+                    <div class="bg-white p-10 rounded-2xl shadow-2xl text-center transform hover:scale-[1.05] transition duration-500 hover:shadow-primary-glow border-b-8 border-primary" role="article">
+                        <i class="fas fa-church text-6xl text-primary mb-6 block" aria-hidden="true"></i>
+                        <h3 class="text-2xl font-extrabold mb-3 text-gray-900">Moral & Spiritual Growth</h3>
+                        <p class="text-gray-600 leading-relaxed">A foundation of Christ-centered teaching ensuring students develop sound character and moral integrity, built upon our motto: "On Christ We Build."</p>
+                    </div>
+
+                    <div class="bg-white p-10 rounded-2xl shadow-2xl text-center transform hover:scale-[1.05] transition duration-500 hover:shadow-primary-glow border-b-8 border-primary" role="article">
+                        <i class="fas fa-user-shield text-6xl text-primary mb-6 block" aria-hidden="true"></i>
+                        <h3 class="text-2xl font-extrabold mb-3 text-gray-900">Discipline & Leadership</h3>
+                        <p class="text-gray-600 leading-relaxed">We instill the discipline recognized by the Ondo State Ministry of Education, shaping tomorrow's responsible, confident, and ethical leaders.</p>
+                    </div>
+
+                </div>
+                <div class="text-center">
+                    <a href="about.html#values" class="bg-white text-primary font-extrabold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-xl border-4 border-white hover:bg-gray-100">
+                        Explore Our Values →
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-28 px-4 bg-light-bg" aria-labelledby="testimonials-heading">
+            <div class="max-w-7xl mx-auto">
+                <h2 id="testimonials-heading" class="text-3xl sm:text-5xl font-extrabold text-gray-900 text-center mb-16">What Our Parents Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    
+                    <blockquote class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-primary transform hover:-translate-y-1 transition duration-300" cite="- Mrs. Adekunle, Lagos Parent" role="blockquote">
+                        <i class="fas fa-quote-left text-2xl text-primary opacity-70 mb-4" aria-hidden="true"></i>
+                        <p class="italic text-gray-700 text-lg mb-6 leading-relaxed">
+                            "The academic improvement my child has shown since enrolling at DSA is phenomenal. The focused approach to science and math is exactly what we were looking for."
+                        </p>
+                        <footer>
+                            <p class="font-bold text-gray-800 text-lg">- Mrs. Adekunle</p>
+                            <p class="text-sm text-primary">Lagos Parent</p>
+                        </footer>
+                    </blockquote>
+                    
+                    <blockquote class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-primary transform hover:-translate-y-1 transition duration-300" cite="- Mr. Bamidele, Owo Resident" role="blockquote">
+                        <i class="fas fa-quote-left text-2xl text-primary opacity-70 mb-4" aria-hidden="true"></i>
+                        <p class="italic text-gray-700 text-lg mb-6 leading-relaxed">
+                            "Discipline is key, and DSA excels here. My son is much more responsible and courteous. On Christ We Build is truly their daily standard."
+                        </p>
+                        <footer>
+                            <p class="font-bold text-gray-800 text-lg">- Mr. Bamidele</p>
+                            <p class="text-sm text-primary">Owo Resident</p>
+                        </footer>
+                    </blockquote>
+                    
+                    <blockquote class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-primary transform hover:-translate-y-1 transition duration-300" cite="- Dr. Obi, Abuja Parent" role="blockquote">
+                        <i class="fas fa-quote-left text-2xl text-primary opacity-70 mb-4" aria-hidden="true"></i>
+                        <p class="italic text-gray-700 text-lg mb-6 leading-relaxed">
+                            "The boarding environment is safe, nurturing, and incredibly focused. We confidently recommend Dominion Science Academy to any prospective parent."
+                        </p>
+                        <footer>
+                            <p class="font-bold text-gray-800 text-lg">- Dr. Obi</p>
+                            <p class="text-sm text-primary">Abuja Parent</p>
+                        </footer>
+                    </blockquote>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="reviews.html" class="text-gray-700 font-bold text-lg hover-text-primary transition duration-300 border-b-4 border-gray-700 border-primary p-1">
+                        See All Success Stories →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-28 px-4 bg-white" aria-labelledby="leadership-heading">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 id="leadership-heading" class="text-3xl sm:text-5xl font-extrabold text-gray-900 mb-16">Meet Our Dedicated Leadership</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <div class="bg-light-bg p-8 rounded-2xl shadow-2xl hover:shadow-primary-glow transition duration-500 border-t-4 border-primary" role="region" aria-label="Proprietor Hassan Shaka">
+                        <div class="w-24 h-24 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center text-4xl text-primary">
+                            <i class="fas fa-user-tie" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-gray-900 mt-2">Mr. Hassan Shaka</h3>
+                        <p class="text-primary font-semibold mb-4">Proprietor (Founder)</p>
+                        <p class="text-gray-600 text-base">Visionary founder guiding the academy's mission and growth since 2004, ensuring adherence to core values.</p>
+                    </div>
+
+                    <div class="bg-light-bg p-8 rounded-2xl shadow-2xl hover:shadow-primary-glow transition duration-500 border-t-4 border-primary" role="region" aria-label="Principal Along David">
+                        <div class="w-24 h-24 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center text-4xl text-primary">
+                            <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-gray-900 mt-2">Mr. Along David</h3>
+                        <p class="text-primary font-semibold mb-4">Principal</p>
+                        <p class="text-gray-600 text-base">Oversees academic excellence, curriculum implementation, and maintains high standards of teaching and learning.</p>
+                    </div>
+
+                    <div class="bg-light-bg p-8 rounded-2xl shadow-2xl hover:shadow-primary-glow transition duration-500 border-t-4 border-primary" role="region" aria-label="Vice Principal Mr. Joel">
+                        <div class="w-24 h-24 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center text-4xl text-primary">
+                            <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-gray-900 mt-2">Mr. Joel</h3>
+                        <p class="text-primary font-semibold mb-4">Vice Principal</p>
+                        <p class="text-gray-600 text-base">Dedicated to student welfare, administrative efficiency, and maintaining exemplary discipline across the campus.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-16">
+                    <a href="about.html#team" class="bg-gray-700 hover:bg-gray-900 text-white font-semibold py-3 px-8 rounded-xl transition duration-300 shadow-xl transform hover:scale-[1.02]">
+                        Explore Our Full Team & Staff
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-light-bg py-28 px-4" aria-labelledby="faq-heading">
+            <div class="max-w-4xl mx-auto">
+                <h2 id="faq-heading" class="text-3xl sm:text-5xl font-extrabold text-gray-900 text-center mb-16">Frequently Asked Questions</h2>
+                
+                <div id="faq-container" class="space-y-6" role="tablist" aria-multiselectable="true">
+                    
+                    <div class="faq-item bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
+                        <button class="faq-question w-full text-left font-extrabold text-xl text-gray-900 flex justify-between items-center p-6 focus:outline-none hover:bg-gray-50 transition duration-300" aria-expanded="false" aria-controls="answer-1" id="question-1" role="tab" tabindex="0">
+                            <span>1. What sections are available at Dominion Science Academy?</span>
+                            <span class="faq-toggle-icon text-primary text-3xl font-light transform transition duration-300" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-600" id="answer-1" role="tabpanel" aria-labelledby="question-1">
+                            <p class="pb-4">We currently operate both **Primary and Secondary school sections** in Owo, Ondo State, providing a continuous educational path for your child.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
+                        <button class="faq-question w-full text-left font-extrabold text-xl text-gray-900 flex justify-between items-center p-6 focus:outline-none hover:bg-gray-50 transition duration-300" aria-expanded="false" aria-controls="answer-2" id="question-2" role="tab" tabindex="0">
+                            <span>2. Is DSA a boarding school?</span>
+                            <span class="faq-toggle-icon text-primary text-3xl font-light transform transition duration-300" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-600" id="answer-2" role="tabpanel" aria-labelledby="question-2">
+                            <p class="pb-4">Yes, we have **dedicated boarding house facilities** designed to create a safe, supportive, and focused environment for students' holistic development and academic concentration.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
+                        <button class="faq-question w-full text-left font-extrabold text-xl text-gray-900 flex justify-between items-center p-6 focus:outline-none hover:bg-gray-50 transition duration-300" aria-expanded="false" aria-controls="answer-3" id="question-3" role="tab" tabindex="0">
+                            <span>3. How can I apply for my child's admission?</span>
+                            <span class="faq-toggle-icon text-primary text-3xl font-light transform transition duration-300" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-600" id="answer-3" role="tabpanel" aria-labelledby="question-3">
+                            <p class="pb-4">Please visit our **Contact/Apply** page for detailed admission requirements, forms, and to send an inquiry directly to our administrative team.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item bg-white rounded-xl shadow-lg border-l-8 border-primary overflow-hidden">
+                        <button class="faq-question w-full text-left font-extrabold text-xl text-gray-900 flex justify-between items-center p-6 focus:outline-none hover:bg-gray-50 transition duration-300" aria-expanded="false" aria-controls="answer-4" id="question-4" role="tab" tabindex="0">
+                            <span>4. What makes the DSA curriculum unique?</span>
+                            <span class="faq-toggle-icon text-primary text-3xl font-light transform transition duration-300" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-600" id="answer-4" role="tabpanel" aria-labelledby="question-4">
+                            <p class="pb-4">Our curriculum is unique due to its **strong emphasis on core science subjects and mathematics**, combined with mandatory **Christ-centered moral education** and discipline, preparing truly excellent and ethical leaders.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-16">
+                    <a href="faq.html" class="bg-gray-700 hover:bg-gray-900 text-white font-semibold py-3 px-8 rounded-xl transition duration-300 shadow-xl transform hover:scale-[1.02]">
+                        View All FAQs
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 px-4 bg-primary text-white" aria-labelledby="cta-heading">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 id="cta-heading" class="text-4xl sm:text-5xl font-extrabold mb-4">
+                    Ready to Join the Dominion Family?
+                </h2>
+                <p class="text-xl opacity-90 mb-16 max-w-4xl mx-auto font-light">
+                    Find out more about our admission process or get in touch with our administrative team.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary" role="complementary" aria-label="Contact by Phone">
+                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-phone-alt" aria-hidden="true"></i></p>
+                        <h3 class="text-2xl font-bold mb-2">Call Us</h3>
+                        <p class="text-xl text-gray-700 font-mono">[Insert School Number]</p>
+                        <p class="text-sm text-gray-500 mt-2">Mon-Fri, 8am-4pm WAT</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary" role="complementary" aria-label="Contact by Email">
+                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-envelope" aria-hidden="true"></i></p>
+                        <h3 class="text-2xl font-bold mb-2">Email Us</h3>
+                        <p class="text-xl text-gray-700 font-mono">[Insert School Email]</p>
+                        <p class="text-sm text-gray-500 mt-2">We respond within 24 hours.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl text-gray-800 shadow-xl border-b-4 border-primary transform hover:scale-[1.03] transition-all-200 hover:shadow-lg-primary" role="complementary" aria-label="Visit our Campus">
+                        <p class="text-4xl mb-4 text-primary"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></p>
+                        <h3 class="text-2xl font-bold mb-2">Visit Our Campus</h3>
+                        <p class="text-xl text-gray-700">Akure, Ondo State, Owo</p>
+                        <a href="contact.html" class="text-primary hover:underline font-semibold mt-2 inline-block transition-all-200">Get Directions <i class="fas fa-arrow-right ml-1 text-sm" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <a href="contact.html" class="inline-flex items-center justify-center bg-white text-primary hover:bg-light-bg font-extrabold text-xl py-4 px-12 rounded-full transition-all-200 shadow-2xl shadow-primary-glow transform hover:translate-y-[-2px] tracking-wide">
+                        <i class="fas fa-graduation-cap w-6 h-6 mr-3" aria-hidden="true"></i>
+                        Begin Your Application Today
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-20 px-4" role="contentinfo">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left">
+            
+            <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center justify-center md:justify-start space-x-3">
+                    <span class="text-5xl font-extrabold text-primary"><i class="fas fa-atom" aria-hidden="true"></i></span>
+                    <span class="text-3xl font-extrabold text-white">DSA</span>
+                </div>
+                <p class="text-2xl font-bold text-white mt-1 mb-2">Dominion Science Academy</p>
+                <p class="text-base text-gray-400 italic">"On Christ We Build" - Excellence in Faith and Science.</p>
+                
+                <h4 class="text-xl font-bold text-primary pt-6">Accreditation</h4>
+                <p class="text-sm text-gray-500">Officially approved by the Ondo State Ministry of Education.</p>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xl font-bold text-primary mb-4 border-b border-primary pb-2">Quick Links</h4>
+                <ul class="space-y-3 text-lg text-gray-400">
+                    <li><a href="index.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-all-200 hover:ml-1 font-bold"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>Admissions & Contact</a></li>
+                    <li><a href="reviews.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>Reviews & Results</a></li>
+                    <li><a href="faq.html" class="hover:text-white transition-all-200 hover:ml-1"><i class="fas fa-chevron-right mr-2 text-xs" aria-hidden="true"></i>FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xl font-bold text-primary mb-4 border-b border-primary pb-2">Get In Touch</h4>
+                <div class="space-y-3 text-lg text-gray-400">
+                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-map-marker-alt mr-3 text-sm text-primary" aria-hidden="true"></i> Owo, Ondo State, Nigeria</p>
+                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-phone-alt mr-3 text-sm text-primary" aria-hidden="true"></i> [Insert School Number]</p>
+                    <p class="flex items-center md:justify-start justify-center"><i class="fas fa-envelope mr-3 text-sm text-primary" aria-hidden="true"></i> [Insert School Email]</p>
+                    <p class="pt-2 text-gray-500 text-sm">Office Hours: Mon–Fri, 8am–4pm</p>
+                </div>
+                
+                <div class="flex justify-center md:justify-start space-x-6 mt-6">
+                    <a href="#" class="text-gray-400 hover-text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="Follow us on Facebook">
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover-text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram-square" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover-text-primary transition-all-200 text-3xl transform hover:scale-110" aria-label="Chat with us on WhatsApp">
+                        <i class="fab fa-whatsapp-square" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto text-center border-t border-gray-800 mt-16 pt-8">
+            <p class="text-sm text-gray-600">
+                &copy; <span id="current-year">2024</span> Dominion Science Academy. All Rights Reserved. Designed for Excellence.
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- Mobile Menu Logic ---
+            const openMenuBtn = document.getElementById('open-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function toggleMobileMenu() {
+                const isMenuOpen = mobileMenu.classList.toggle('open');
+                openMenuBtn.setAttribute('aria-expanded', isMenuOpen);
+
+                // Optional: Toggle the hamburger/close icon in the header
+                const menuIcon = document.getElementById('menu-icon');
+                const closeIcon = document.getElementById('close-icon');
+                if (isMenuOpen) {
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                } else {
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            }
+
+            openMenuBtn.addEventListener('click', toggleMobileMenu);
+            closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            // --- Image Carousel Logic ---
+            const items = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+            const intervalTime = 5000; // 5 seconds
+
+            function cycleCarousel() {
+                if (items.length === 0) return;
+
+                // Deactivate current item for visual and accessibility
+                items[currentIndex].classList.remove('active');
+                items[currentIndex].setAttribute('aria-hidden', 'true');
+
+
+                // Calculate the next index
+                currentIndex = (currentIndex + 1) % items.length;
+
+                // Activate next item for visual and accessibility
+                items[currentIndex].classList.add('active');
+                items[currentIndex].setAttribute('aria-hidden', 'false');
+            }
+            
+            // Start the carousel auto-cycling
+            if (items.length > 0) {
+                // Ensure the first item is active on load
+                items[0].classList.add('active'); 
+                items[0].setAttribute('aria-hidden', 'false');
+                setInterval(cycleCarousel, intervalTime);
+            }
+
+            // --- FAQ Accordion Logic ---
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.closest('.faq-item');
+                    const wasActive = item.classList.contains('active');
+                    const answerId = button.getAttribute('aria-controls');
+                    const answer = document.getElementById(answerId);
+
+                    // Close all others and update ARIA
+                    document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                        if (activeItem !== item) {
+                            activeItem.classList.remove('active');
+                            const activeBtn = activeItem.querySelector('.faq-question');
+                            activeBtn.setAttribute('aria-expanded', 'false');
+                            // The answer's hidden state is primarily controlled by max-height, but ARIA is key for accessibility.
+                        }
+                    });
+
+                    // Toggle current item and update ARIA
+                    if (!wasActive) {
+                        item.classList.add('active');
+                        button.setAttribute('aria-expanded', 'true');
+                    } else {
+                        item.classList.remove('active');
+                        button.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Dominion Science Academy Owo | Top Science Boarding School in Ondo State, Nigeria</title>
+    
+    <meta name="description" content="Dominion Science Academy in Owo, Ondo State, offers a Christ-centered, disciplined, and rigorous science-focused boarding education. Achieve excellence in WAEC & JAMB. Apply today!">
+
+    <link rel="canonical" href="[Insert Canonical URL of this Page]">
+    
+    <meta name="keywords" content="Dominion Science Academy, science boarding school, Ondo State, Owo, top secondary school, WAEC, JAMB, Christian school, disciplined education, STEM Nigeria">
+
+    <meta property="og:title" content="Dominion Science Academy Owo | Excellence in Faith and Science">
+    <meta property="og:description" content="Discover the difference a Christ-centered, disciplined science education makes. Consistent high distinctions in WAEC & JAMB.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[Insert Canonical URL of this Page]">
+    <meta property="og:image" content="https://www.freepik.com/free-photos-vectors/high-quality-logo">
+    <meta property="og:site_name" content="Dominion Science Academy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="[@YourTwitterHandle]">
+    <meta name="twitter:title" content="Dominion Science Academy Owo | Excellence in Faith and Science">
+    <meta name="twitter:description" content="Discover the difference a Christ-centered, disciplined science education makes. Consistent high distinctions in WAEC & JAMB.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define the new Dark Green color based on the logo: #1A4335 */
+        :root {
+            --color-primary: #1A4335;
+            --color-primary-dark: #122F26; /* Slightly darker for hover */
+        }
+
+        /* Custom Tailwind Configuration (using Inter font) */
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Updated Primary Color */
+        .bg-primary { background-color: var(--color-primary); }
+        .text-primary { color: var(--color-primary); }
+        .border-primary { border-color: var(--color-primary); }
+        .hover-bg-primary:hover { background-color: var(--color-primary-dark); }
+        
+        /* Shadow uses the primary color for a professional, branded lift */
+        .shadow-green { box-shadow: 0 10px 15px -3px rgba(26, 67, 53, 0.5), 0 4px 6px -2px rgba(26, 67, 53, 0.05); }
+
+        /* Custom Card Hover Animation (Existing) */
+        .feature-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            /* Increased shadow opacity for hover */
+            box-shadow: 0 20px 25px -5px rgba(26, 67, 53, 0.3), 0 10px 10px -5px rgba(26, 67, 53, 0.04);
+        }
+
+        /* Gallery Image Styles (Existing) */
+        .gallery-item {
+            border-radius: 0.75rem; /* rounded-xl */
+            background-color: #D1D5DB; /* bg-gray-300 */
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease-in-out;
+            overflow: hidden; /* Ensure text overlay is contained */
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* --- NEW ANIMATIONS --- */
+        
+        /* 1. Spin on Hover (for features) */
+        .icon-spin:hover .fa-flask, 
+        .icon-spin:hover .fa-church,
+        .icon-spin:hover .fa-shield-halved,
+        .icon-spin:hover .fa-medal,
+        .icon-spin:hover .fa-bed,
+        .icon-spin:hover .fa-users {
+            transform: rotate(360deg);
+            transition: transform 0.8s ease-out;
+        }
+        
+        /* 2. Fade In for H1 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-hero-fade {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* 3. Team Member Pop-up on Hover */
+        .team-member-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .team-member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px -5px rgba(26, 67, 53, 0.4);
+        }
+
+    </style>
+
+    
+    <script>
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').onclick = function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        };
+        
+        // Ensure the hero fade-in animation runs correctly on the text elements after a slight delay
+        document.addEventListener('DOMContentLoaded', () => {
+            const paragraphs = document.querySelectorAll('.animate-hero-fade');
+            paragraphs.forEach((p, index) => {
+                p.style.animationDelay = `${0.3 + index * 0.2}s`; // Add staggered delay
+                p.style.opacity = '1'; // Ensure final state is visible
+            });
+        });
+    </script>
+</body>
+</html>
