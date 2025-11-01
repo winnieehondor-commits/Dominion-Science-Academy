@@ -175,21 +175,21 @@
                 currentYearElement.textContent = new Date().getFullYear();
             }
 
-            // ⭐ CORE FIX: Mobile Menu Logic - Updated to toggle icon ⭐
+            // ⭐ CORE FIX: Mobile Menu Logic - Robust Toggle ⭐
             const mobileMenuBtn = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const menuIcon = document.getElementById('menu-icon'); // Get the icon element
+            const menuIcon = document.getElementById('menu-icon'); // The icon element
 
             if (mobileMenuBtn && mobileMenu && menuIcon) {
                 mobileMenuBtn.addEventListener('click', () => {
-                    // This toggles the 'hidden' Tailwind class on the menu
+                    // 1. Toggle the 'hidden' class to show/hide the menu
                     mobileMenu.classList.toggle('hidden');
                     
-                    // Update ARIA for accessibility
+                    // 2. Update ARIA attribute for accessibility
                     const isMenuOpen = !mobileMenu.classList.contains('hidden');
                     mobileMenuBtn.setAttribute('aria-expanded', isMenuOpen);
                     
-                    // TOGGLE ICON: bars <-> times
+                    // 3. Toggle the icon between bars and times
                     if (isMenuOpen) {
                         menuIcon.classList.remove('fa-bars');
                         menuIcon.classList.add('fa-times'); // Use fa-times (X icon) when open
@@ -204,8 +204,7 @@
         });
     </script>
 </body>
-</html>
-</body>
+
     <main>
         
 
